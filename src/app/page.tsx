@@ -61,7 +61,6 @@ const BRANDS = [
   { name: "Levi's", logo: "/brands/levis_real.svg" },
   { name: "Ralph Lauren", logo: "/brands/ralph_vintage.png" },
   { name: "Dickies", logo: "/brands/dickies_vintage.png" },
-  { name: "Champion", logo: "/brands/champion_real.svg" },
   { name: "Adidas", logo: "/brands/adidas_vintage.png" },
 ];
 
@@ -129,7 +128,7 @@ export default function Home() {
                 <div className="h-1 w-24 bg-retro-red mx-auto mt-4" />
              </div>
              
-             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+             <div className="grid grid-cols-2 md:grid-cols-7 gap-4 md:gap-4">
                 {BRANDS.map((brand, idx) => (
                   <motion.div 
                     key={brand.name}
@@ -137,7 +136,7 @@ export default function Home() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: idx * 0.05 }}
                     viewport={{ once: true }}
-                    className="aspect-square flex flex-col items-center justify-center bg-white border border-retro-black/10 hover:border-retro-red hover:shadow-[4px_4px_0px_0px_rgba(139,0,0,1)] transition-all duration-300 group cursor-default p-8 overflow-hidden"
+                    className="aspect-square flex flex-col items-center justify-center bg-white border border-retro-black/10 hover:border-retro-red hover:shadow-[4px_4px_0px_0px_rgba(139,0,0,1)] transition-all duration-300 group cursor-default p-4 overflow-hidden"
                   >
                      {/* Vintage Logo Image */}
                      <div className="w-full h-full relative opacity-80 group-hover:opacity-100 transition-all duration-500 group-hover:scale-110 mix-blend-multiply grayscale group-hover:grayscale-0">
