@@ -14,7 +14,7 @@ const MOCK_PRODUCTS: Product[] = [
     price: 2800,
     size: "XL",
     grade: "B",
-    image: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=1000&auto=format&fit=crop",
+    image: "/lookbook/look1.jpg",
     category: "Tops",
   },
   {
@@ -24,7 +24,7 @@ const MOCK_PRODUCTS: Product[] = [
     price: 1500,
     size: "L",
     grade: "A",
-    image: "https://images.unsplash.com/photo-1551028919-ac7f2ca30662?q=80&w=1000&auto=format&fit=crop",
+    image: "/lookbook/look4.jpg",
     category: "Outerwear",
   },
   {
@@ -34,7 +34,7 @@ const MOCK_PRODUCTS: Product[] = [
     price: 850,
     size: "M",
     grade: "B",
-    image: "https://images.unsplash.com/photo-1556906781-9a412961c28c?q=80&w=1000&auto=format&fit=crop",
+    image: "/lookbook/look2.jpg",
     category: "Tops",
   },
   {
@@ -44,7 +44,7 @@ const MOCK_PRODUCTS: Product[] = [
     price: 3200,
     size: "32/30",
     grade: "A",
-    image: "https://images.unsplash.com/photo-1542272617-08f08630329e?q=80&w=1000&auto=format&fit=crop",
+    image: "/lookbook/look5.jpg",
     category: "Bottoms",
   },
   {
@@ -54,7 +54,7 @@ const MOCK_PRODUCTS: Product[] = [
     price: 1200,
     size: "L",
     grade: "C",
-    image: "https://images.unsplash.com/photo-1503341504253-dff4815485f1?q=80&w=1000&auto=format&fit=crop",
+    image: "/lookbook/look6.jpg",
     category: "Tops",
   },
   {
@@ -64,7 +64,7 @@ const MOCK_PRODUCTS: Product[] = [
     price: 4500,
     size: "48",
     grade: "S",
-    image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=1000&auto=format&fit=crop",
+    image: "/lookbook/look2.jpg",
     category: "Outerwear",
   },
   {
@@ -74,7 +74,7 @@ const MOCK_PRODUCTS: Product[] = [
     price: 1800,
     size: "XL",
     grade: "A",
-    image: "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=1000&auto=format&fit=crop",
+    image: "/lookbook/look1.jpg",
     category: "Tops",
   },
   {
@@ -84,7 +84,7 @@ const MOCK_PRODUCTS: Product[] = [
     price: 2200,
     size: "2",
     grade: "A",
-    image: "https://images.unsplash.com/photo-1582552938357-32b906df40cb?q=80&w=1000&auto=format&fit=crop",
+    image: "/lookbook/look5.jpg",
     category: "Bottoms",
   },
 ];
