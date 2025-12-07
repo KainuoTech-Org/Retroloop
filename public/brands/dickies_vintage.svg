@@ -1,8 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100">
-  <style>
-    .bg { fill: #D32F2F; }
-    .text { font-family: sans-serif; font-size: 40px; fill: white; font-weight: bold; }
-  </style>
-  <path d="M40,20 h120 v60 h-120 z" class="bg" transform="skewX(-10)"/>
-  <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" class="text">Dickies</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120">
+  <!-- Red Oval Background -->
+  <ellipse cx="100" cy="60" rx="90" ry="50" fill="#D32F2F" />
+  
+  <!-- Yellow Horseshoe (U shape) -->
+  <path d="M60,40 Q100,100 140,40 L120,40 Q100,70 80,40 Z" fill="#FBC02D" />
+  
+  <!-- Blue Bar -->
+  <rect x="20" y="50" width="160" height="30" fill="#1976D2" />
+  
+  <!-- Dickies Text -->
+  <text x="100" y="72" font-family="Arial, sans-serif" font-weight="bold" font-size="24" fill="white" text-anchor="middle" letter-spacing="1" style="font-style: italic;">Dickies</text>
+  
+  <!-- Registered Symbol -->
+  <text x="170" y="85" font-family="Arial, sans-serif" font-size="10" fill="white">®</text>
 </svg>

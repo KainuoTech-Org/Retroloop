@@ -1,4 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100">
-  <path d="M70,70 L90,20 L110,70 Z M100,70 L120,10 L140,70 Z M130,70 L150,0 L170,70 Z" fill="black"/>
-  <text x="50%" y="90%" font-family="sans-serif" font-weight="bold" font-size="20" text-anchor="middle">adidas</text>
+  <!-- Blue Background Box -->
+  <rect x="10" y="10" width="180" height="80" fill="#4FC3F7" stroke="black" stroke-width="4" />
+  
+  <!-- Adidas Script Text -->
+  <text x="100" y="65" font-family="'Brush Script MT', 'Kaushan Script', cursive" font-size="60" fill="#FFF8E1" text-anchor="middle" transform="rotate(-5, 100, 50)" style="text-shadow: 3px 3px 0px #000;">Adidas</text>
+  
+  <!-- Three Stripes / Logo Mark -->
+  <path d="M150,70 L160,50 L170,70 Z" fill="#FFF8E1" transform="translate(10, 5)" />
 </svg>
