@@ -14,15 +14,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'i.etsystatic.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'i.pinimg.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'ih1.redbubble.net',
+        hostname: 'upload.wikimedia.org',
       },
     ],
   },

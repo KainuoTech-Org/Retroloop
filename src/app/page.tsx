@@ -52,16 +52,16 @@ const FEATURED_PRODUCTS = [
   },
 ];
 
-// Using vintage style logos via remote URLs for better quality/vibe matching
+// Using highly reliable Wikipedia/Commons SVG/PNG URLs
 const BRANDS = [
-  { name: "Carhartt", logo: "https://i.etsystatic.com/22360457/r/il/66380c/2869550308/il_fullxfull.2869550308_9p5p.jpg" },
-  { name: "Nike", logo: "https://i.pinimg.com/originals/e7/8a/06/e78a0633668a64982420127264783307.jpg" },
-  { name: "Stussy", logo: "https://ih1.redbubble.net/image.1044458376.1664/st,small,507x507-pad,600x600,f8f8f8.jpg" },
-  { name: "Levi's", logo: "https://ih1.redbubble.net/image.1656820542.4571/st,small,507x507-pad,600x600,f8f8f8.jpg" },
-  { name: "Ralph Lauren", logo: "https://ih1.redbubble.net/image.1054366668.7963/st,small,507x507-pad,600x600,f8f8f8.jpg" },
-  { name: "Dickies", logo: "https://ih1.redbubble.net/image.1002347306.4967/st,small,507x507-pad,600x600,f8f8f8.jpg" },
-  { name: "Champion", logo: "https://ih1.redbubble.net/image.1637659424.0322/st,small,507x507-pad,600x600,f8f8f8.jpg" },
-  { name: "Adidas", logo: "https://ih1.redbubble.net/image.1187440408.8526/st,small,507x507-pad,600x600,f8f8f8.jpg" },
+  { name: "Carhartt", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Carhartt_logo.svg/2560px-Carhartt_logo.svg.png" },
+  { name: "Nike", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Logo_NIKE.svg/1200px-Logo_NIKE.svg.png" },
+  { name: "Stussy", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Stussy_logo.svg/2560px-Stussy_logo.svg.png" },
+  { name: "Levi's", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Levi%27s_logo.svg/2560px-Levi%27s_logo.svg.png" },
+  { name: "Ralph Lauren", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Polo_Ralph_Lauren_logo.svg/2560px-Polo_Ralph_Lauren_logo.svg.png" },
+  { name: "Dickies", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Dickies_logo.svg/2560px-Dickies_logo.svg.png" },
+  { name: "Champion", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Champion_logo.svg/2560px-Champion_logo.svg.png" },
+  { name: "Adidas", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Adidas_Logo.svg/2560px-Adidas_Logo.svg.png" },
 ];
 
 export default function Home() {
