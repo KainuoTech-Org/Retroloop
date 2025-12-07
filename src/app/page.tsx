@@ -18,7 +18,7 @@ const FEATURED_PRODUCTS = [
     price: 2800,
     size: "XL",
     grade: "B" as const,
-    image: "https://images.unsplash.com/photo-1503341504253-dff4815485f1?q=80&w=1000&auto=format&fit=crop", // Vintage Band Tee Vibe
+    image: "/lookbook/look1.jpg", // Using local image for reliability
     category: "Tops",
   },
   {
@@ -28,7 +28,7 @@ const FEATURED_PRODUCTS = [
     price: 4500,
     size: "48",
     grade: "S" as const,
-    image: "https://images.unsplash.com/photo-1559551409-dadc959f76b8?q=80&w=1000&auto=format&fit=crop", // Technical Vest Vibe
+    image: "/lookbook/look2.jpg", // Using local image for reliability
     category: "Outerwear",
   },
   {
@@ -38,7 +38,7 @@ const FEATURED_PRODUCTS = [
     price: 1500,
     size: "L",
     grade: "A" as const,
-    image: "https://images.unsplash.com/photo-1516257984-b1b4d8c9230c?q=80&w=1000&auto=format&fit=crop", 
+    image: "/lookbook/look4.jpg", // Using local image for reliability
     category: "Outerwear",
   },
   {
@@ -48,11 +48,12 @@ const FEATURED_PRODUCTS = [
     price: 3200,
     size: "32/30",
     grade: "A" as const,
-    image: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=1000&auto=format&fit=crop", // Denim Vibe
+    image: "/lookbook/look5.jpg", // Using local image for reliability
     category: "Bottoms",
   },
 ];
 
+// Using local SVGs for maximum reliability and vintage styling
 const BRANDS = [
   { name: "Carhartt", logo: "/brands/carhartt_real.svg" },
   { name: "Nike", logo: "/brands/nike_real.svg" },

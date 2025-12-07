@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ConditionBadge, type ConditionGrade } from "./ConditionBadge";
-import { MessageCircle } from "lucide-react";
+import { MessageCircle, Instagram } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export interface Product {
@@ -29,6 +29,7 @@ export function ProductCard({ product }: ProductCardProps) {
     `Hi RetroLoop, I'm interested in the ${product.brand} ${product.name} (ID: ${product.id}). Is it still available?`
   );
   const whatsappUrl = `https://wa.me/85212345678?text=${inquiryMessage}`;
+  const instagramUrl = "https://instagram.com/retroloop_archive"; // Placeholder
 
   return (
     <motion.div
@@ -52,17 +53,27 @@ export function ProductCard({ product }: ProductCardProps) {
             />
         </div>
 
-        {/* Overlay Action - WhatsApp Inquiry */}
-        <Link 
-          href={whatsappUrl}
-          target="_blank"
-          className="absolute inset-0 bg-retro-black/40 transition-opacity duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100"
-        >
-             <button className="flex items-center gap-2 bg-green-600 text-white font-oswald font-bold py-3 px-6 uppercase hover:bg-green-500 transition-colors rounded-full">
-                <MessageCircle className="w-5 h-5" />
-                {t.product.inquire}
-             </button>
-        </Link>
+        {/* Overlay Action - Inquiry Links */}
+        <div className="absolute inset-0 bg-retro-black/40 transition-opacity duration-300 flex flex-col items-center justify-center gap-3 opacity-0 group-hover:opacity-100">
+            <Link 
+              href={whatsappUrl}
+              target="_blank"
+            >
+                 <button className="flex items-center gap-2 bg-green-600 text-white font-oswald font-bold py-2 px-6 uppercase hover:bg-green-500 transition-colors rounded-full min-w-[160px] justify-center">
+                    <MessageCircle className="w-5 h-5" />
+                    WhatsApp
+                 </button>
+            </Link>
+            <Link 
+              href={instagramUrl}
+              target="_blank"
+            >
+                 <button className="flex items-center gap-2 bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 text-white font-oswald font-bold py-2 px-6 uppercase hover:opacity-90 transition-opacity rounded-full min-w-[160px] justify-center">
+                    <Instagram className="w-5 h-5" />
+                    Instagram
+                 </button>
+            </Link>
+        </div>
       </div>
 
       <div className="flex flex-col gap-1">

@@ -1,1 +1,8 @@
-File not found: /v1/AUTH_mw/wikipedia-commons-local-public.ee/e/ee/Champion_logo.svg
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100">
+  <style>
+    .text { font-family: 'Cooper Black', 'Arial Black', sans-serif; font-size: 50px; fill: #1a1a1a; }
+    .c-mark { fill: #C62828; stroke: white; stroke-width: 2; }
+  </style>
+  <text x="60%" y="55%" dominant-baseline="middle" text-anchor="middle" class="text">hampion</text>
+  <path d="M40,50 a20,20 0 1,1 0,-1 z" class="c-mark" transform="scale(1.5) translate(-10, -10)" />
+</svg>
