@@ -8,6 +8,7 @@ import { Marquee } from "@/components/ui/marquee";
 import { motion } from "framer-motion";
 import { Calendar } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import { InstagramFeed } from "@/components/ui/InstagramFeed";
 
 // Updated Mock Data with more authentic vintage look
 const FEATURED_PRODUCTS = [
@@ -154,41 +155,8 @@ export default function Home() {
           </div>
        </section>
 
-       {/* Marquee Break */}
-       <section className="py-12 bg-retro-black text-retro-beige">
-          <Marquee className="py-4" duration={25}>
-             <span className="text-4xl md:text-6xl font-oswald font-bold mx-12 uppercase">{t.marquee.buy}</span>
-             <span className="text-4xl md:text-6xl font-oswald font-bold mx-12 text-retro-red">•</span>
-             <span className="text-4xl md:text-6xl font-oswald font-bold mx-12 uppercase">{t.marquee.trade}</span>
-             <span className="text-4xl md:text-6xl font-oswald font-bold mx-12 text-retro-red">•</span>
-             <span className="text-4xl md:text-6xl font-oswald font-bold mx-12 uppercase">{t.marquee.auth}</span>
-             <span className="text-4xl md:text-6xl font-oswald font-bold mx-12 text-retro-red">•</span>
-          </Marquee>
-       </section>
-
-       {/* Featured / New Arrivals */}
-       <section className="py-24 px-4 md:px-8 max-w-7xl mx-auto w-full">
-          <div className="flex justify-between items-end mb-16">
-             <h2 className="text-5xl md:text-7xl font-oswald font-bold uppercase text-retro-black leading-none">
-                {t.featured.title}<br/><span className="text-retro-red">{t.featured.highlight}</span>
-             </h2>
-             <Link href="/archive" className="hidden md:block font-oswald text-xl underline decoration-2 underline-offset-4 hover:text-retro-red">
-                {t.featured.viewAll}
-             </Link>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12">
-            {FEATURED_PRODUCTS.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
-
-          <div className="mt-12 text-center md:hidden">
-             <Link href="/archive" className="font-oswald text-xl underline decoration-2 underline-offset-4 hover:text-retro-red">
-                {t.featured.viewAll}
-             </Link>
-          </div>
-       </section>
+       {/* Instagram Feed Section (Replaces Static Featured Products) */}
+       <InstagramFeed />
     </div>
   );
 }

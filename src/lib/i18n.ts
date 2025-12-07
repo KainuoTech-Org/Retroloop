@@ -26,6 +26,8 @@ export const translations = {
       title: "Selected",
       highlight: "Highlights",
       viewAll: "View All Items",
+      instagramTitle: "Latest Drops",
+      instagramSubtitle: "Follow @retroloop_archive for daily updates",
     },
     product: {
       inquire: "INQUIRE NOW",
@@ -90,6 +92,8 @@ export const translations = {
       title: "精选",
       highlight: "单品",
       viewAll: "查看全部",
+      instagramTitle: "最新上架",
+      instagramSubtitle: "关注 @retroloop_archive 获取每日更新",
     },
     product: {
       inquire: "立即咨询",
