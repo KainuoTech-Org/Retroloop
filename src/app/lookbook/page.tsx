@@ -10,7 +10,7 @@ const LOOKBOOK_ITEMS = [
   { id: 2, type: "image", src: "/lookbook/look2.jpg", aspect: "aspect-[4/5]" }, // Street Style
   { id: 3, type: "text", content: "Y2K VISION", aspect: "aspect-square" },
   { id: 4, type: "image", src: "/lookbook/look4.jpg", aspect: "aspect-[3/4]" }, // Menswear
-  { id: 5, type: "image", src: "/lookbook/look5.jpg", aspect: "aspect-[16/9]" }, // Neon/Vibe
+  { id: 5, type: "text", content: "TIMELESS", aspect: "aspect-[16/9]" }, // Replaced broken image with text
   { id: 6, type: "image", src: "/lookbook/look6.jpg", aspect: "aspect-[3/4]" }, // Grunge
 ];
 

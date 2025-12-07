@@ -48,7 +48,7 @@ const FEATURED_PRODUCTS = [
     price: 3200,
     size: "32/30",
     grade: "A" as const,
-    image: "/lookbook/look5.jpg", // Using local image for reliability
+    image: "/lookbook/look4.jpg", // Replaced broken look5.jpg with look4.jpg
     category: "Bottoms",
   },
 ];
