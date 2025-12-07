@@ -7,6 +7,7 @@ import { ProductCard } from "@/components/product/ProductCard";
 import { Marquee } from "@/components/ui/marquee";
 import { motion } from "framer-motion";
 import { Calendar } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 // Updated Mock Data with more authentic vintage look
 const FEATURED_PRODUCTS = [
@@ -37,7 +38,6 @@ const FEATURED_PRODUCTS = [
     price: 1500,
     size: "L",
     grade: "A" as const,
-    // Replacing broken URL with a reliable workwear texture/jacket image from Unsplash
     image: "https://images.unsplash.com/photo-1516257984-b1b4d8c9230c?q=80&w=1000&auto=format&fit=crop", 
     category: "Outerwear",
   },
@@ -53,7 +53,6 @@ const FEATURED_PRODUCTS = [
   },
 ];
 
-// Using locally downloaded authentic logos
 const BRANDS = [
   { name: "Carhartt", logo: "/brands/carhartt_real.svg" },
   { name: "Nike", logo: "/brands/nike_real.svg" },
@@ -66,6 +65,8 @@ const BRANDS = [
 ];
 
 export default function Home() {
+  const { t } = useLanguage();
+
   // Set next drop date to next Friday 8PM
   const nextDropDate = new Date();
   nextDropDate.setDate(nextDropDate.getDate() + ((5 + 7 - nextDropDate.getDay()) % 7));
@@ -90,28 +91,28 @@ export default function Home() {
 
          <div className="relative z-10 text-center">
            <div className="inline-block mb-4 px-4 py-1 border-2 border-retro-red bg-retro-beige/80 backdrop-blur-sm text-retro-red text-xs font-bold uppercase tracking-widest rounded-full">
-              Hong Kong Based Archive
+              {t.hero.badge}
            </div>
            <h1 className="text-6xl md:text-[10rem] font-oswald font-bold text-retro-red tracking-tighter leading-[0.85] drop-shadow-xl mix-blend-hard-light mb-6">
              RETROLOOP<br/>ARCHIVE
            </h1>
            <p className="mt-4 text-lg md:text-2xl font-medium tracking-[0.2em] uppercase text-retro-black bg-retro-beige/60 inline-block px-4 py-2 backdrop-blur-sm">
-             Timeless Pieces for Modern Souls.
+             {t.hero.slogan}
            </p>
            
            {/* Countdown */}
            <div className="mt-16 mb-12 p-6 bg-retro-beige/40 backdrop-blur-md rounded-xl border border-retro-black/10 inline-block">
-             <div className="text-center text-sm font-bold uppercase tracking-widest mb-4 opacity-80 text-retro-black">Next Drop In</div>
+             <div className="text-center text-sm font-bold uppercase tracking-widest mb-4 opacity-80 text-retro-black">{t.hero.nextDrop}</div>
              <Countdown targetDate={nextDropDate} />
            </div>
            
            <div className="mt-8 flex flex-col sm:flex-row gap-6 justify-center">
              <Link href="/archive" className="px-8 py-4 bg-retro-red text-retro-beige font-oswald text-xl font-bold uppercase hover:bg-retro-black transition-colors duration-300 shadow-lg">
-               Enter Archive
+               {t.hero.enterArchive}
              </Link>
              <Link href="/visit" className="flex items-center gap-2 px-8 py-4 bg-retro-beige/80 backdrop-blur-sm border-2 border-retro-black text-retro-black font-oswald text-xl font-bold uppercase hover:bg-retro-black hover:text-retro-beige transition-colors duration-300">
                <Calendar className="w-5 h-5" />
-               Book Visit
+               {t.nav.bookVisit}
              </Link>
            </div>
          </div>
@@ -122,7 +123,7 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
              <div className="text-center mb-12">
                 <h2 className="text-3xl md:text-5xl font-oswald font-bold uppercase tracking-wide text-retro-black">
-                   Curated Brands
+                   {t.brands.title}
                 </h2>
                 <div className="h-1 w-24 bg-retro-red mx-auto mt-4" />
              </div>
@@ -156,11 +157,11 @@ export default function Home() {
        {/* Marquee Break */}
        <section className="py-12 bg-retro-black text-retro-beige">
           <Marquee className="py-4" duration={25}>
-             <span className="text-4xl md:text-6xl font-oswald font-bold mx-12 uppercase">We Buy Vintage</span>
+             <span className="text-4xl md:text-6xl font-oswald font-bold mx-12 uppercase">{t.marquee.buy}</span>
              <span className="text-4xl md:text-6xl font-oswald font-bold mx-12 text-retro-red">•</span>
-             <span className="text-4xl md:text-6xl font-oswald font-bold mx-12 uppercase">Trade-Ins Welcome</span>
+             <span className="text-4xl md:text-6xl font-oswald font-bold mx-12 uppercase">{t.marquee.trade}</span>
              <span className="text-4xl md:text-6xl font-oswald font-bold mx-12 text-retro-red">•</span>
-             <span className="text-4xl md:text-6xl font-oswald font-bold mx-12 uppercase">Authenticity Guaranteed</span>
+             <span className="text-4xl md:text-6xl font-oswald font-bold mx-12 uppercase">{t.marquee.auth}</span>
              <span className="text-4xl md:text-6xl font-oswald font-bold mx-12 text-retro-red">•</span>
           </Marquee>
        </section>
@@ -169,10 +170,10 @@ export default function Home() {
        <section className="py-24 px-4 md:px-8 max-w-7xl mx-auto w-full">
           <div className="flex justify-between items-end mb-16">
              <h2 className="text-5xl md:text-7xl font-oswald font-bold uppercase text-retro-black leading-none">
-                Selected<br/><span className="text-retro-red">Highlights</span>
+                {t.featured.title}<br/><span className="text-retro-red">{t.featured.highlight}</span>
              </h2>
              <Link href="/archive" className="hidden md:block font-oswald text-xl underline decoration-2 underline-offset-4 hover:text-retro-red">
-                View All Items
+                {t.featured.viewAll}
              </Link>
           </div>
 
@@ -184,7 +185,7 @@ export default function Home() {
 
           <div className="mt-12 text-center md:hidden">
              <Link href="/archive" className="font-oswald text-xl underline decoration-2 underline-offset-4 hover:text-retro-red">
-                View All Items
+                {t.featured.viewAll}
              </Link>
           </div>
        </section>

@@ -3,17 +3,20 @@
 import { motion } from "framer-motion";
 import { MapPin, Clock, Mail, Instagram, MessageCircle } from "lucide-react";
 import Link from "next/link";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function VisitPage() {
+  const { t } = useLanguage();
+
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
       {/* Header */}
       <div className="text-center mb-16">
         <h1 className="text-5xl md:text-8xl font-oswald font-bold uppercase tracking-tighter text-retro-red mb-4">
-          Visit Us
+          {t.visit.title}
         </h1>
         <p className="text-retro-black/60 font-mono text-sm tracking-widest uppercase">
-          Hong Kong Flagship Archive
+          {t.visit.subtitle}
         </p>
       </div>
 
@@ -29,7 +32,7 @@ export default function VisitPage() {
            >
              <div className="flex items-center gap-3 text-retro-red">
                <MapPin className="w-6 h-6" />
-               <h3 className="font-oswald text-2xl font-bold uppercase">Location</h3>
+               <h3 className="font-oswald text-2xl font-bold uppercase">{t.visit.location}</h3>
              </div>
              <p className="font-mono text-lg leading-relaxed">
                Unit 1402, 14/F, Vintage Tower<br/>
@@ -49,7 +52,7 @@ export default function VisitPage() {
            >
              <div className="flex items-center gap-3 text-retro-red">
                <Clock className="w-6 h-6" />
-               <h3 className="font-oswald text-2xl font-bold uppercase">Hours</h3>
+               <h3 className="font-oswald text-2xl font-bold uppercase">{t.visit.hours}</h3>
              </div>
              <ul className="font-mono text-lg space-y-2">
                <li className="flex justify-between max-w-xs border-b border-retro-black/10 pb-1">
@@ -73,7 +76,7 @@ export default function VisitPage() {
            >
              <div className="flex items-center gap-3 text-retro-red">
                <Mail className="w-6 h-6" />
-               <h3 className="font-oswald text-2xl font-bold uppercase">Contact</h3>
+               <h3 className="font-oswald text-2xl font-bold uppercase">{t.visit.contact}</h3>
              </div>
              
              <div className="flex flex-col gap-4">
@@ -83,7 +86,7 @@ export default function VisitPage() {
                   className="flex items-center justify-center gap-3 bg-green-600 text-white py-4 px-6 font-oswald font-bold uppercase hover:bg-green-500 transition-colors w-full sm:w-auto"
                >
                   <MessageCircle className="w-5 h-5" />
-                  WhatsApp Us
+                  {t.visit.whatsapp}
                </Link>
                
                <Link 
@@ -92,12 +95,12 @@ export default function VisitPage() {
                   className="flex items-center justify-center gap-3 bg-retro-black text-retro-beige py-4 px-6 font-oswald font-bold uppercase hover:bg-retro-red transition-colors w-full sm:w-auto"
                >
                   <Instagram className="w-5 h-5" />
-                  Follow on Instagram
+                  {t.visit.instagram}
                </Link>
              </div>
              
              <p className="text-sm text-retro-black/60 italic mt-4">
-               * Private fitting sessions available by appointment only on Tuesday mornings.
+               {t.visit.tips}
              </p>
            </motion.div>
         </div>

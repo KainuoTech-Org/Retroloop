@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useLanguage } from "@/context/LanguageContext";
 
 // Authentic Vintage Vibe Images from Unsplash
 const LOOKBOOK_ITEMS = [
@@ -14,14 +15,16 @@ const LOOKBOOK_ITEMS = [
 ];
 
 export default function LookbookPage() {
+  const { t } = useLanguage();
+
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
       <div className="mb-16 text-center">
         <h1 className="text-5xl md:text-8xl font-oswald font-bold uppercase tracking-tighter text-retro-red">
-          Lookbook
+          {t.lookbook.title}
         </h1>
         <p className="mt-4 text-retro-black/60 font-mono text-sm tracking-widest uppercase">
-          Styling the Archive
+          {t.lookbook.subtitle}
         </p>
       </div>
 
@@ -45,7 +48,7 @@ export default function LookbookPage() {
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/20 text-white font-oswald text-2xl">
-                   LOOK {item.id}
+                   {t.lookbook.look} {item.id}
                 </div>
               </div>
             ) : (

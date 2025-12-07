@@ -2,19 +2,20 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X, ShoppingBag, Calendar } from "lucide-react";
+import { Menu, X, Calendar, Globe } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { cn } from "@/lib/utils";
-
-const NAV_LINKS = [
-  { href: "/archive", label: "ARCHIVE" },
-  { href: "/lookbook", label: "LOOKBOOK" },
-  { href: "/about", label: "ABOUT" },
-  { href: "/visit", label: "VISIT" },
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const { t, language, setLanguage } = useLanguage();
+
+  const NAV_LINKS = [
+    { href: "/archive", label: t.nav.archive },
+    { href: "/lookbook", label: t.nav.lookbook },
+    { href: "/about", label: t.nav.about },
+    { href: "/visit", label: t.nav.visit },
+  ];
 
   return (
     <nav className="sticky top-0 z-50 w-full border-b border-retro-black bg-retro-beige/95 backdrop-blur-sm">
@@ -39,14 +40,19 @@ export function Navbar() {
 
         {/* Actions */}
         <div className="flex items-center space-x-4">
+          {/* Language Switcher */}
+          <button 
+            onClick={() => setLanguage(language === "en" ? "zh" : "en")}
+            className="hidden md:flex items-center gap-1 font-oswald font-bold hover:text-retro-red transition-colors"
+          >
+            <Globe className="w-4 h-4" />
+            <span>{language === "en" ? "CN" : "EN"}</span>
+          </button>
+
           <Link href="/visit" className="hidden md:flex items-center gap-2 bg-retro-black text-retro-beige px-4 py-2 font-oswald text-sm uppercase hover:bg-retro-red transition-colors">
             <Calendar className="w-4 h-4" />
-            <span>Book Visit</span>
+            <span>{t.nav.bookVisit}</span>
           </Link>
-          
-          <button className="p-2 hover:text-retro-red transition-colors">
-            <ShoppingBag className="h-6 w-6" />
-          </button>
           
           {/* Mobile Menu Button */}
           <button
@@ -78,14 +84,27 @@ export function Navbar() {
                   {link.label}
                 </Link>
               ))}
-              <Link
-                  href="/visit"
-                  onClick={() => setIsOpen(false)}
-                  className="flex items-center justify-center gap-2 bg-retro-black text-retro-beige px-4 py-3 font-oswald text-xl uppercase hover:bg-retro-red transition-colors w-full mt-4"
-              >
-                  <Calendar className="w-5 h-5" />
-                  <span>Book Visit</span>
-              </Link>
+              
+              <div className="flex gap-4 mt-4">
+                 <button 
+                    onClick={() => {
+                        setLanguage(language === "en" ? "zh" : "en");
+                        setIsOpen(false);
+                    }}
+                    className="flex items-center justify-center gap-2 border border-retro-black px-4 py-3 font-oswald text-xl uppercase hover:bg-retro-black hover:text-retro-beige transition-colors w-1/2"
+                >
+                    <Globe className="w-5 h-5" />
+                    <span>{language === "en" ? "中文" : "English"}</span>
+                </button>
+                <Link
+                    href="/visit"
+                    onClick={() => setIsOpen(false)}
+                    className="flex items-center justify-center gap-2 bg-retro-black text-retro-beige px-4 py-3 font-oswald text-xl uppercase hover:bg-retro-red transition-colors w-1/2"
+                >
+                    <Calendar className="w-5 h-5" />
+                    <span>{t.nav.bookVisit}</span>
+                </Link>
+              </div>
             </div>
           </motion.div>
         )}

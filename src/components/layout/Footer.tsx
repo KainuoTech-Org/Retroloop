@@ -3,8 +3,11 @@
 import Link from "next/link";
 import { Instagram, MapPin } from "lucide-react"; // Using Lucide icons
 import { Marquee } from "@/components/ui/marquee";
+import { useLanguage } from "@/context/LanguageContext";
 
 export function Footer() {
+  const { t } = useLanguage();
+
   return (
     <footer className="w-full bg-retro-black text-retro-beige pt-0">
       {/* Marquee Section */}
@@ -34,13 +37,13 @@ export function Footer() {
 
         {/* Shop Links */}
         <div>
-           <h3 className="font-oswald text-xl font-bold mb-6 text-retro-red">ARCHIVE</h3>
+           <h3 className="font-oswald text-xl font-bold mb-6 text-retro-red">{t.nav.archive}</h3>
            <ul className="space-y-3 text-sm">
              <li><Link href="/archive" className="hover:text-retro-red transition-colors">New Arrivals</Link></li>
              <li><Link href="/archive?cat=tops" className="hover:text-retro-red transition-colors">Tops & Tees</Link></li>
              <li><Link href="/archive?cat=outerwear" className="hover:text-retro-red transition-colors">Outerwear</Link></li>
              <li><Link href="/archive?cat=bottoms" className="hover:text-retro-red transition-colors">Bottoms</Link></li>
-             <li><Link href="/lookbook" className="hover:text-retro-red transition-colors">Lookbook</Link></li>
+             <li><Link href="/lookbook" className="hover:text-retro-red transition-colors">{t.nav.lookbook}</Link></li>
            </ul>
         </div>
 
@@ -48,8 +51,8 @@ export function Footer() {
         <div>
            <h3 className="font-oswald text-xl font-bold mb-6 text-retro-red">INFO</h3>
            <ul className="space-y-3 text-sm">
-             <li><Link href="/about" className="hover:text-retro-red transition-colors">About Us</Link></li>
-             <li><Link href="/visit" className="hover:text-retro-red transition-colors">Visit Store</Link></li>
+             <li><Link href="/about" className="hover:text-retro-red transition-colors">{t.nav.about}</Link></li>
+             <li><Link href="/visit" className="hover:text-retro-red transition-colors">{t.nav.visit}</Link></li>
              <li><Link href="/sizing" className="hover:text-retro-red transition-colors">Sizing Guide</Link></li>
              <li><Link href="/condition" className="hover:text-retro-red transition-colors">Condition Grading</Link></li>
              <li><Link href="/terms" className="hover:text-retro-red transition-colors">Terms & Shipping</Link></li>
@@ -68,7 +71,7 @@ export function Footer() {
              </Link>
            </div>
            <p className="text-xs opacity-50">
-             © {new Date().getFullYear()} RetroLoop Archive.<br/>All rights reserved.
+             © {new Date().getFullYear()} RetroLoop Archive.<br/>{t.footer.rights}
            </p>
         </div>
       </div>

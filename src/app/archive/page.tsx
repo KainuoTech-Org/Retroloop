@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { ProductCard, type Product } from "@/components/product/ProductCard";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
 
 // Real Images from Unsplash
 const MOCK_PRODUCTS: Product[] = [
@@ -92,6 +93,7 @@ const CATEGORIES = ["All", "Tops", "Outerwear", "Bottoms", "Accessories"];
 
 export default function ArchivePage() {
   const [activeCategory, setActiveCategory] = useState("All");
+  const { t } = useLanguage();
 
   const filteredProducts = activeCategory === "All" 
     ? MOCK_PRODUCTS 
@@ -102,10 +104,10 @@ export default function ArchivePage() {
       {/* Header */}
       <div className="mb-12 text-center">
         <h1 className="text-5xl md:text-8xl font-oswald font-bold uppercase tracking-tighter text-retro-red mb-4">
-          The Archive
+          {t.archive.title}
         </h1>
         <p className="max-w-2xl mx-auto text-retro-black/70 font-mono text-sm md:text-base">
-          A curated selection of timeless pieces. Each item is unique and thoroughly graded.
+          {t.archive.subtitle}
         </p>
       </div>
 
@@ -136,9 +138,19 @@ export default function ArchivePage() {
       
       {filteredProducts.length === 0 && (
          <div className="text-center py-20 opacity-50 font-mono">
-            No items found in this category.
+            {t.archive.noItems}
          </div>
       )}
+
+      {/* More Products Disclaimer */}
+      <div className="mt-20 text-center border-t border-retro-black/10 pt-16">
+        <h3 className="font-oswald text-2xl font-bold uppercase text-retro-black mb-4">
+          {t.archive.moreTitle}
+        </h3>
+        <p className="max-w-xl mx-auto text-retro-black/60 font-mono text-sm leading-relaxed">
+          {t.archive.moreSubtitle}
+        </p>
+      </div>
     </div>
   );
 }

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ConditionBadge, type ConditionGrade } from "./ConditionBadge";
 import { MessageCircle } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export interface Product {
   id: string;
@@ -22,6 +23,7 @@ interface ProductCardProps {
 }
 
 export function ProductCard({ product }: ProductCardProps) {
+  const { t } = useLanguage();
   // Construct WhatsApp message
   const inquiryMessage = encodeURIComponent(
     `Hi RetroLoop, I'm interested in the ${product.brand} ${product.name} (ID: ${product.id}). Is it still available?`
@@ -58,7 +60,7 @@ export function ProductCard({ product }: ProductCardProps) {
         >
              <button className="flex items-center gap-2 bg-green-600 text-white font-oswald font-bold py-3 px-6 uppercase hover:bg-green-500 transition-colors rounded-full">
                 <MessageCircle className="w-5 h-5" />
-                Inquire Now
+                {t.product.inquire}
              </button>
         </Link>
       </div>
@@ -72,7 +74,7 @@ export function ProductCard({ product }: ProductCardProps) {
         </div>
         <div className="flex justify-between items-center text-xs text-retro-black/60 uppercase tracking-wider">
           <span>{product.brand}</span>
-          <span>Size: {product.size}</span>
+          <span>{t.product.size}: {product.size}</span>
         </div>
       </div>
     </motion.div>
