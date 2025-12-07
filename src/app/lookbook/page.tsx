@@ -4,14 +4,14 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 
-// Authentic Vintage Vibe Images from Unsplash
+// Using local images for 100% reliability
 const LOOKBOOK_ITEMS = [
-  { id: 1, type: "image", src: "https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1000&auto=format&fit=crop", aspect: "aspect-[3/4]" }, // Retro Fashion
-  { id: 2, type: "image", src: "https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1000&auto=format&fit=crop", aspect: "aspect-[4/5]" }, // Street Style
+  { id: 1, type: "image", src: "/lookbook/look1.jpg", aspect: "aspect-[3/4]" }, // Retro Fashion
+  { id: 2, type: "image", src: "/lookbook/look2.jpg", aspect: "aspect-[4/5]" }, // Street Style
   { id: 3, type: "text", content: "Y2K VISION", aspect: "aspect-square" },
-  { id: 4, type: "image", src: "https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?q=80&w=1000&auto=format&fit=crop", aspect: "aspect-[3/4]" }, // Menswear
-  { id: 5, type: "image", src: "https://images.unsplash.com/photo-1529139574466-a302d27f60d0?q=80&w=1000&auto=format&fit=crop", aspect: "aspect-[16/9]" }, // Neon/Vibe
-  { id: 6, type: "image", src: "https://images.unsplash.com/photo-1503342394128-c104d54dba01?q=80&w=1000&auto=format&fit=crop", aspect: "aspect-[3/4]" }, // Grunge
+  { id: 4, type: "image", src: "/lookbook/look4.jpg", aspect: "aspect-[3/4]" }, // Menswear
+  { id: 5, type: "image", src: "/lookbook/look5.jpg", aspect: "aspect-[16/9]" }, // Neon/Vibe
+  { id: 6, type: "image", src: "/lookbook/look6.jpg", aspect: "aspect-[3/4]" }, // Grunge
 ];
 
 export default function LookbookPage() {
