@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100">
-  <!-- NIKE Block Text -->
-  <text x="100" y="55" font-family="'Impact', 'Arial Black', sans-serif" font-size="60" fill="white" stroke="black" stroke-width="2" text-anchor="middle" letter-spacing="2">NIKE</text>
-  
-  <!-- Swoosh -->
-  <path d="M40,70 Q100,100 160,50 L155,50 Q100,90 45,70 Z" fill="black" />
-</svg>

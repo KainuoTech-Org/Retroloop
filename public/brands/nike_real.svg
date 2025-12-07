@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100">
-  <style>
-    .text { font-family: 'Impact', 'Arial Black', sans-serif; font-size: 60px; fill: black; letter-spacing: -2px; }
-  </style>
-  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" class="text">NIKE</text>
-  <path d="M20,60 Q100,100 180,40 L170,40 Q100,90 30,60 Z" fill="black" />
-</svg>

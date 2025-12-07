@@ -58,7 +58,7 @@ const BRANDS = [
   { name: "Carhartt", logo: "/brands/carhartt_vintage.png" },
   { name: "Nike", logo: "/brands/nike_vintage.png" },
   { name: "Stussy", logo: "/brands/stussy_vintage.png" },
-  { name: "Levi's", logo: "/brands/levis_real.svg" },
+  { name: "Levi's", logo: "/brands/levis_vintage.png" },
   { name: "Ralph Lauren", logo: "/brands/ralph_vintage.png" },
   { name: "Dickies", logo: "/brands/dickies_vintage.png" },
   { name: "Adidas", logo: "/brands/adidas_vintage.png" },
