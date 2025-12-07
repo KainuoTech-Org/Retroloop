@@ -45,8 +45,37 @@ export function InstagramFeed() {
 
         {/* Widget Container */}
         <div className="w-full min-h-[400px] bg-white border border-retro-black/10 p-4 flex items-center justify-center overflow-hidden">
-            {/* Elfsight Widget */}
-            <div className="elfsight-app-aeccd9b1-bb4b-46a5-9587-9d72cab192db w-full" data-elfsight-app-lazy></div>
+            {/* 
+                INSTRUCTION FOR SHOP OWNER:
+                To display YOUR own Instagram feed:
+                1. Go to https://elfsight.com/instagram-feed-instalink/
+                2. Create a free account and connect your Instagram
+                3. Copy the "Widget ID" (it looks like: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)
+                4. Replace the ID below with yours
+            */}
+            
+            {/* Demo/Instruction State - Shown when no real widget is connected or for demo purposes */}
+            <div className="text-center p-8 border-2 border-dashed border-retro-black/20 rounded-lg w-full h-full flex flex-col items-center justify-center gap-6 bg-retro-gray/5 min-h-[400px]">
+                <div className="space-y-2">
+                    <p className="font-oswald text-2xl text-retro-black/40 uppercase">Connect Your Instagram</p>
+                    <p className="font-mono text-sm text-retro-red">Currently showing demo feed</p>
+                </div>
+                
+                <div className="text-left bg-white p-6 rounded shadow-sm max-w-md mx-auto border border-retro-black/10">
+                    <p className="font-bold mb-2 font-oswald uppercase">How to display YOUR shop's feed:</p>
+                    <ol className="list-decimal list-inside space-y-2 text-sm font-mono text-retro-black/70">
+                        <li>Visit <a href="https://elfsight.com/instagram-feed-instalink/" target="_blank" className="underline text-blue-600">elfsight.com</a> (Free)</li>
+                        <li>Create a widget & connect your account</li>
+                        <li>Get your <b>Widget ID</b></li>
+                        <li>Send the ID to your developer to update</li>
+                    </ol>
+                </div>
+
+                {/* 
+                   To use the real feed, uncomment the line below and replace the ID 
+                   <div className="elfsight-app-YOUR-WIDGET-ID-HERE" data-elfsight-app-lazy></div>
+                */}
+            </div>
         </div>
       </div>
     </section>
