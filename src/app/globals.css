@@ -1,26 +1,90 @@
 @import "tailwindcss";
 
+@plugin "tailwindcss-animate";
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand Colors */
+  --retro-beige: #F5F5DC;
+  --retro-red: #8B0000;
+  --retro-black: #000000;
+  --retro-gray: #1a1a1a;
+
+  /* Semantic Colors */
+  --background: var(--retro-beige);
+  --foreground: var(--retro-black);
+  --primary: var(--retro-red);
+  
+  /* UI Colors */
+  --card: #ffffff;
+  --card-foreground: var(--retro-black);
+  --popover: #ffffff;
+  --popover-foreground: var(--retro-black);
+  --muted: #e5e5e5;
+  --muted-foreground: #737373;
+  --accent: var(--retro-red);
+  --accent-foreground: #ffffff;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: var(--retro-black);
+  --input: #e5e5e5;
+  --ring: var(--retro-red);
+  --radius: 0rem; /* Brutalist/Sharp corners */
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-primary: var(--primary);
+  
+  --color-retro-beige: var(--retro-beige);
+  --color-retro-red: var(--retro-red);
+  --color-retro-black: var(--retro-black);
+  
+  --font-oswald: var(--font-oswald);
+  --font-sans: var(--font-geist-sans); 
+  
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-oswald), sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Custom Scrollbar for Chrome/Safari/Webkit */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--retro-beige);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--retro-red);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--retro-black);
+}
+
+/* Animations */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
 }

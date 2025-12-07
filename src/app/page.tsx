@@ -1,65 +1,192 @@
+"use client";
+
+import { Countdown } from "@/components/ui/countdown";
+import Link from "next/link";
 import Image from "next/image";
+import { ProductCard } from "@/components/product/ProductCard";
+import { Marquee } from "@/components/ui/marquee";
+import { motion } from "framer-motion";
+import { Calendar } from "lucide-react";
+
+// Updated Mock Data with more authentic vintage look
+const FEATURED_PRODUCTS = [
+  {
+    id: "1",
+    name: "1994 Pink Floyd Division Bell Tee",
+    brand: "Brockum",
+    price: 2800,
+    size: "XL",
+    grade: "B" as const,
+    image: "https://images.unsplash.com/photo-1503341504253-dff4815485f1?q=80&w=1000&auto=format&fit=crop", // Vintage Band Tee Vibe
+    category: "Tops",
+  },
+  {
+    id: "6",
+    name: "Prada Sport Nylon Vest",
+    brand: "Prada",
+    price: 4500,
+    size: "48",
+    grade: "S" as const,
+    image: "https://images.unsplash.com/photo-1559551409-dadc959f76b8?q=80&w=1000&auto=format&fit=crop", // Technical Vest Vibe
+    category: "Outerwear",
+  },
+  {
+    id: "2",
+    name: "Vintage Carhartt Detroit Jacket",
+    brand: "Carhartt",
+    price: 1500,
+    size: "L",
+    grade: "A" as const,
+    image: "https://images.unsplash.com/photo-1516257984-b1b4d8c9230c?q=80&w=1000&auto=format&fit=crop", // Workwear Vibe
+    category: "Outerwear",
+  },
+  {
+    id: "4",
+    name: "Levi's 501 Big E Selvedge",
+    brand: "Levi's",
+    price: 3200,
+    size: "32/30",
+    grade: "A" as const,
+    image: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=1000&auto=format&fit=crop", // Denim Vibe
+    category: "Bottoms",
+  },
+];
+
+// Using vintage style logos via remote URLs for better quality/vibe matching
+const BRANDS = [
+  { name: "Carhartt", logo: "https://i.etsystatic.com/22360457/r/il/66380c/2869550308/il_fullxfull.2869550308_9p5p.jpg" },
+  { name: "Nike", logo: "https://i.pinimg.com/originals/e7/8a/06/e78a0633668a64982420127264783307.jpg" },
+  { name: "Stussy", logo: "https://ih1.redbubble.net/image.1044458376.1664/st,small,507x507-pad,600x600,f8f8f8.jpg" },
+  { name: "Levi's", logo: "https://ih1.redbubble.net/image.1656820542.4571/st,small,507x507-pad,600x600,f8f8f8.jpg" },
+  { name: "Ralph Lauren", logo: "https://ih1.redbubble.net/image.1054366668.7963/st,small,507x507-pad,600x600,f8f8f8.jpg" },
+  { name: "Dickies", logo: "https://ih1.redbubble.net/image.1002347306.4967/st,small,507x507-pad,600x600,f8f8f8.jpg" },
+  { name: "Champion", logo: "https://ih1.redbubble.net/image.1637659424.0322/st,small,507x507-pad,600x600,f8f8f8.jpg" },
+  { name: "Adidas", logo: "https://ih1.redbubble.net/image.1187440408.8526/st,small,507x507-pad,600x600,f8f8f8.jpg" },
+];
 
 export default function Home() {
+  // Set next drop date to next Friday 8PM
+  const nextDropDate = new Date();
+  nextDropDate.setDate(nextDropDate.getDate() + ((5 + 7 - nextDropDate.getDay()) % 7));
+  nextDropDate.setHours(20, 0, 0, 0);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+    <div className="flex flex-col w-full">
+       {/* Hero Section with Vintage Image Background */}
+       <section className="relative flex flex-col items-center justify-center min-h-[90vh] py-20 px-4 overflow-hidden">
+         {/* Background Image */}
+         <div className="absolute inset-0 z-0">
+            <Image 
+              src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=2070&auto=format&fit=crop" // More "Archive" feel
+              alt="Vintage Archive Background"
+              fill
+              className="object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-[2s]"
+              priority
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+            <div className="absolute inset-0 bg-retro-beige/30 mix-blend-multiply" />
+            <div className="absolute inset-0 bg-gradient-to-t from-retro-beige via-transparent to-transparent" />
+         </div>
+
+         <div className="relative z-10 text-center">
+           <div className="inline-block mb-4 px-4 py-1 border-2 border-retro-red bg-retro-beige/80 backdrop-blur-sm text-retro-red text-xs font-bold uppercase tracking-widest rounded-full">
+              Hong Kong Based Archive
+           </div>
+           <h1 className="text-6xl md:text-[10rem] font-oswald font-bold text-retro-red tracking-tighter leading-[0.85] drop-shadow-xl mix-blend-hard-light mb-6">
+             RETROLOOP<br/>ARCHIVE
+           </h1>
+           <p className="mt-4 text-lg md:text-2xl font-medium tracking-[0.2em] uppercase text-retro-black bg-retro-beige/60 inline-block px-4 py-2 backdrop-blur-sm">
+             Timeless Pieces for Modern Souls.
+           </p>
+           
+           {/* Countdown */}
+           <div className="mt-16 mb-12 p-6 bg-retro-beige/40 backdrop-blur-md rounded-xl border border-retro-black/10 inline-block">
+             <div className="text-center text-sm font-bold uppercase tracking-widest mb-4 opacity-80 text-retro-black">Next Drop In</div>
+             <Countdown targetDate={nextDropDate} />
+           </div>
+           
+           <div className="mt-8 flex flex-col sm:flex-row gap-6 justify-center">
+             <Link href="/archive" className="px-8 py-4 bg-retro-red text-retro-beige font-oswald text-xl font-bold uppercase hover:bg-retro-black transition-colors duration-300 shadow-lg">
+               Enter Archive
+             </Link>
+             <Link href="/visit" className="flex items-center gap-2 px-8 py-4 bg-retro-beige/80 backdrop-blur-sm border-2 border-retro-black text-retro-black font-oswald text-xl font-bold uppercase hover:bg-retro-black hover:text-retro-beige transition-colors duration-300">
+               <Calendar className="w-5 h-5" />
+               Book Visit
+             </Link>
+           </div>
+         </div>
+       </section>
+
+       {/* Brands Section (The Forest Style) */}
+       <section className="py-20 bg-retro-beige">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+             <div className="text-center mb-12">
+                <h2 className="text-3xl md:text-5xl font-oswald font-bold uppercase tracking-wide text-retro-black">
+                   Curated Brands
+                </h2>
+                <div className="h-1 w-24 bg-retro-red mx-auto mt-4" />
+             </div>
+             
+             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+                {BRANDS.map((brand, idx) => (
+                  <motion.div 
+                    key={brand.name}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: idx * 0.05 }}
+                    viewport={{ once: true }}
+                    className="aspect-square flex flex-col items-center justify-center bg-white border border-retro-black/10 hover:border-retro-red hover:shadow-[4px_4px_0px_0px_rgba(139,0,0,1)] transition-all duration-300 group cursor-default p-8 overflow-hidden"
+                  >
+                     {/* Vintage Logo Image */}
+                     <div className="w-full h-full relative opacity-80 group-hover:opacity-100 transition-all duration-500 group-hover:scale-110 mix-blend-multiply grayscale group-hover:grayscale-0">
+                        <Image 
+                          src={brand.logo} 
+                          alt={brand.name} 
+                          fill 
+                          className="object-contain"
+                          sizes="(max-width: 768px) 50vw, 25vw"
+                        />
+                     </div>
+                  </motion.div>
+                ))}
+             </div>
+          </div>
+       </section>
+
+       {/* Marquee Break */}
+       <section className="py-12 bg-retro-black text-retro-beige">
+          <Marquee className="py-4" duration={25}>
+             <span className="text-4xl md:text-6xl font-oswald font-bold mx-12 uppercase">We Buy Vintage</span>
+             <span className="text-4xl md:text-6xl font-oswald font-bold mx-12 text-retro-red">•</span>
+             <span className="text-4xl md:text-6xl font-oswald font-bold mx-12 uppercase">Trade-Ins Welcome</span>
+             <span className="text-4xl md:text-6xl font-oswald font-bold mx-12 text-retro-red">•</span>
+             <span className="text-4xl md:text-6xl font-oswald font-bold mx-12 uppercase">Authenticity Guaranteed</span>
+             <span className="text-4xl md:text-6xl font-oswald font-bold mx-12 text-retro-red">•</span>
+          </Marquee>
+       </section>
+
+       {/* Featured / New Arrivals */}
+       <section className="py-24 px-4 md:px-8 max-w-7xl mx-auto w-full">
+          <div className="flex justify-between items-end mb-16">
+             <h2 className="text-5xl md:text-7xl font-oswald font-bold uppercase text-retro-black leading-none">
+                Selected<br/><span className="text-retro-red">Highlights</span>
+             </h2>
+             <Link href="/archive" className="hidden md:block font-oswald text-xl underline decoration-2 underline-offset-4 hover:text-retro-red">
+                View All Items
+             </Link>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12">
+            {FEATURED_PRODUCTS.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+
+          <div className="mt-12 text-center md:hidden">
+             <Link href="/archive" className="font-oswald text-xl underline decoration-2 underline-offset-4 hover:text-retro-red">
+                View All Items
+             </Link>
+          </div>
+       </section>
     </div>
   );
 }
