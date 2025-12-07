@@ -55,14 +55,14 @@ const FEATURED_PRODUCTS = [
 
 // Using local SVGs for maximum reliability and vintage styling
 const BRANDS = [
-  { name: "Carhartt", logo: "/brands/carhartt_real.svg" },
-  { name: "Nike", logo: "/brands/nike_vintage.svg" },
-  { name: "Stussy", logo: "/brands/stussy_vintage.svg" },
+  { name: "Carhartt", logo: "/brands/carhartt_vintage.png" },
+  { name: "Nike", logo: "/brands/nike_vintage.png" },
+  { name: "Stussy", logo: "/brands/stussy_vintage.png" },
   { name: "Levi's", logo: "/brands/levis_real.svg" },
-  { name: "Ralph Lauren", logo: "/brands/ralph_vintage.svg" },
-  { name: "Dickies", logo: "/brands/dickies_vintage.svg" },
+  { name: "Ralph Lauren", logo: "/brands/ralph_vintage.png" },
+  { name: "Dickies", logo: "/brands/dickies_vintage.png" },
   { name: "Champion", logo: "/brands/champion_real.svg" },
-  { name: "Adidas", logo: "/brands/adidas_vintage.svg" },
+  { name: "Adidas", logo: "/brands/adidas_vintage.png" },
 ];
 
 export default function Home() {
