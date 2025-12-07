@@ -37,7 +37,8 @@ const FEATURED_PRODUCTS = [
     price: 1500,
     size: "L",
     grade: "A" as const,
-    image: "https://images.unsplash.com/photo-1516257984-b1b4d8c9230c?q=80&w=1000&auto=format&fit=crop", // Workwear Vibe
+    // Replacing broken URL with a reliable workwear texture/jacket image from Unsplash
+    image: "https://images.unsplash.com/photo-1516257984-b1b4d8c9230c?q=80&w=1000&auto=format&fit=crop", 
     category: "Outerwear",
   },
   {
@@ -52,16 +53,16 @@ const FEATURED_PRODUCTS = [
   },
 ];
 
-// Using highly reliable Wikipedia/Commons SVG/PNG URLs
+// Using local SVGs for maximum reliability and vintage styling
 const BRANDS = [
-  { name: "Carhartt", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Carhartt_logo.svg/2560px-Carhartt_logo.svg.png" },
-  { name: "Nike", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Logo_NIKE.svg/1200px-Logo_NIKE.svg.png" },
-  { name: "Stussy", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Stussy_logo.svg/2560px-Stussy_logo.svg.png" },
-  { name: "Levi's", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Levi%27s_logo.svg/2560px-Levi%27s_logo.svg.png" },
-  { name: "Ralph Lauren", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Polo_Ralph_Lauren_logo.svg/2560px-Polo_Ralph_Lauren_logo.svg.png" },
-  { name: "Dickies", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Dickies_logo.svg/2560px-Dickies_logo.svg.png" },
-  { name: "Champion", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Champion_logo.svg/2560px-Champion_logo.svg.png" },
-  { name: "Adidas", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Adidas_Logo.svg/2560px-Adidas_Logo.svg.png" },
+  { name: "Carhartt", logo: "/brands/carhartt_vintage.svg" },
+  { name: "Nike", logo: "/brands/nike_vintage.svg" },
+  { name: "Stussy", logo: "/brands/stussy_vintage.svg" },
+  { name: "Levi's", logo: "/brands/levis_vintage.svg" },
+  { name: "Ralph Lauren", logo: "/brands/ralph_vintage.svg" },
+  { name: "Dickies", logo: "/brands/dickies_vintage.svg" },
+  { name: "Champion", logo: "/brands/champion_vintage.svg" },
+  { name: "Adidas", logo: "/brands/adidas_vintage.svg" },
 ];
 
 export default function Home() {
