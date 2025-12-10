@@ -10,6 +10,16 @@ interface LookbookItem {
   aspect: string;
 }
 
+// Mock Data for Demo (Fallback when Sanity is empty)
+const MOCK_LOOKBOOK = [
+  { _id: "mock-1", type: "image" as const, image: "/lookbook/look1.jpg", aspect: "aspect-[3/4]" },
+  { _id: "mock-2", type: "image" as const, image: "/lookbook/look2.jpg", aspect: "aspect-[4/5]" },
+  { _id: "mock-3", type: "text" as const, textContent: "Y2K VISION", aspect: "aspect-square" },
+  { _id: "mock-4", type: "image" as const, image: "/lookbook/look4.jpg", aspect: "aspect-[3/4]" },
+  { _id: "mock-5", type: "text" as const, textContent: "TIMELESS", aspect: "aspect-[16/9]" },
+  { _id: "mock-6", type: "image" as const, image: "/lookbook/look6.jpg", aspect: "aspect-[3/4]" },
+];
+
 async function getLookbook() {
   const query = `*[_type == "lookbook"] | order(_createdAt desc) {
     _id,
@@ -23,6 +33,9 @@ async function getLookbook() {
 
 export default async function LookbookPage() {
   const items = await getLookbook();
+  
+  // Combine Sanity data with Mock data if Sanity is empty
+  const displayItems = items.length > 0 ? items : MOCK_LOOKBOOK;
 
   return (
     <div className="min-h-screen pt-20 pb-10 px-2 sm:px-4">
@@ -38,7 +51,7 @@ export default async function LookbookPage() {
 
         {/* Masonry Grid */}
         <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
-           {items.map((item: LookbookItem) => (
+           {displayItems.map((item: LookbookItem) => (
              <div 
                key={item._id}
                className={`relative break-inside-avoid overflow-hidden group ${item.aspect}`}
@@ -46,7 +59,7 @@ export default async function LookbookPage() {
                 {item.type === "image" && item.image && (
                   <div className={`relative w-full h-full ${item.aspect === 'aspect-square' ? 'aspect-square' : item.aspect === 'aspect-[3/4]' ? 'aspect-[3/4]' : item.aspect === 'aspect-[16/9]' ? 'aspect-[16/9]' : 'aspect-[4/5]'}`}>
                     <Image
-                      src={urlForImage(item.image).url()}
+                      src={typeof item.image === 'string' ? item.image : urlForImage(item.image).url()}
                       alt="Lookbook"
                       fill
                       className="object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-out"
@@ -66,7 +79,7 @@ export default async function LookbookPage() {
            ))}
         </div>
 
-        {items.length === 0 && (
+        {displayItems.length === 0 && (
            <div className="text-center py-20 opacity-50 font-mono">
               暂无内容 (No content yet)
            </div>
