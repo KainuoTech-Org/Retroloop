@@ -54,7 +54,7 @@ const MOCK_PRODUCTS = [
     price: 3200,
     size: "32/30",
     grade: "A" as const,
-    image: "/lookbook/look4.jpg",
+    image: "/lookbook/look5.jpg",
     category: "Bottoms",
   },
   {
@@ -94,7 +94,7 @@ const MOCK_PRODUCTS = [
     price: 2200,
     size: "2",
     grade: "A" as const,
-    image: "/lookbook/look2.jpg",
+    image: "/lookbook/look5.jpg",
     category: "Bottoms",
   },
 ];
