@@ -3,56 +3,11 @@
 import { Countdown } from "@/components/ui/countdown";
 import Link from "next/link";
 import Image from "next/image";
-import { ProductCard } from "@/components/product/ProductCard";
 import { Marquee } from "@/components/ui/marquee";
 import { motion } from "framer-motion";
 import { Calendar } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { InstagramFeed } from "@/components/ui/InstagramFeed";
-
-// Updated Mock Data with more authentic vintage look
-const FEATURED_PRODUCTS = [
-  {
-    id: "1",
-    name: "1994 Pink Floyd Division Bell Tee",
-    brand: "Brockum",
-    price: 2800,
-    size: "XL",
-    grade: "B" as const,
-    image: "/lookbook/look1.jpg", // Using local image for reliability
-    category: "Tops",
-  },
-  {
-    id: "6",
-    name: "Prada Sport Nylon Vest",
-    brand: "Prada",
-    price: 4500,
-    size: "48",
-    grade: "S" as const,
-    image: "/lookbook/look2.jpg", // Using local image for reliability
-    category: "Outerwear",
-  },
-  {
-    id: "2",
-    name: "Vintage Carhartt Detroit Jacket",
-    brand: "Carhartt",
-    price: 1500,
-    size: "L",
-    grade: "A" as const,
-    image: "/lookbook/look4.jpg", // Using local image for reliability
-    category: "Outerwear",
-  },
-  {
-    id: "4",
-    name: "Levi's 501 Big E Selvedge",
-    brand: "Levi's",
-    price: 3200,
-    size: "32/30",
-    grade: "A" as const,
-    image: "/lookbook/look4.jpg", // Replaced broken look5.jpg with look4.jpg
-    category: "Bottoms",
-  },
-];
 
 // Using local SVGs for maximum reliability and vintage styling
 const BRANDS = [
