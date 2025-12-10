@@ -3,6 +3,8 @@ export const translations = {
     nav: {
       archive: "ARCHIVE",
       lookbook: "LOOKBOOK",
+      news: "NEWS",
+      projects: "PROJECTS",
       about: "ABOUT",
       visit: "VISIT",
       bookVisit: "BOOK VISIT",
@@ -69,6 +71,8 @@ export const translations = {
     nav: {
       archive: "档案库",
       lookbook: "造型录",
+      news: "新闻",
+      projects: "项目",
       about: "关于我们",
       visit: "探店",
       bookVisit: "预约探店",

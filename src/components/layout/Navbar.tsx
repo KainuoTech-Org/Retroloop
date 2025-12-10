@@ -12,6 +12,8 @@ export function Navbar() {
 
   const NAV_LINKS = [
     { href: "/archive", label: t.nav.archive },
+    { href: "/news", label: t.nav.news },
+    { href: "/projects", label: t.nav.projects },
     { href: "/lookbook", label: t.nav.lookbook },
     { href: "/about", label: t.nav.about },
     { href: "/visit", label: t.nav.visit },
