@@ -24,7 +24,7 @@ const MOCK_PRODUCTS = [
     price: 2800,
     size: "XL",
     grade: "B" as const,
-    image: "/lookbook/look1.jpg",
+    image: "/lookbook/look1.jpg?v=2",
     category: "Tops",
   },
   {
@@ -34,7 +34,7 @@ const MOCK_PRODUCTS = [
     price: 1500,
     size: "L",
     grade: "A" as const,
-    image: "/lookbook/look4.jpg",
+    image: "/lookbook/look4.jpg?v=2",
     category: "Outerwear",
   },
   {
@@ -44,7 +44,7 @@ const MOCK_PRODUCTS = [
     price: 850,
     size: "M",
     grade: "B" as const,
-    image: "/lookbook/look2.jpg",
+    image: "/lookbook/look2.jpg?v=2",
     category: "Tops",
   },
   {
@@ -54,7 +54,7 @@ const MOCK_PRODUCTS = [
     price: 3200,
     size: "32/30",
     grade: "A" as const,
-    image: "/lookbook/look5.jpg",
+    image: "/lookbook/look6.jpg?v=2",
     category: "Bottoms",
   },
   {
@@ -64,7 +64,7 @@ const MOCK_PRODUCTS = [
     price: 1200,
     size: "L",
     grade: "C" as const,
-    image: "/lookbook/look6.jpg",
+    image: "/lookbook/look3.jpg?v=2",
     category: "Tops",
   },
   {
@@ -74,7 +74,7 @@ const MOCK_PRODUCTS = [
     price: 4500,
     size: "48",
     grade: "S" as const,
-    image: "/lookbook/look2.jpg",
+    image: "/lookbook/look7.jpg?v=2",
     category: "Outerwear",
   },
   {
@@ -84,7 +84,7 @@ const MOCK_PRODUCTS = [
     price: 1800,
     size: "XL",
     grade: "A" as const,
-    image: "/lookbook/look1.jpg",
+    image: "/lookbook/look8.jpg?v=2",
     category: "Tops",
   },
   {
@@ -94,7 +94,7 @@ const MOCK_PRODUCTS = [
     price: 2200,
     size: "2",
     grade: "A" as const,
-    image: "/lookbook/look5.jpg",
+    image: "/lookbook/look5.jpg?v=2",
     category: "Bottoms",
   },
 ];

@@ -12,12 +12,12 @@ interface LookbookItem {
 
 // Mock Data for Demo (Fallback when Sanity is empty)
 const MOCK_LOOKBOOK = [
-  { _id: "mock-1", type: "image" as const, image: "/lookbook/look1.jpg", aspect: "aspect-[3/4]" },
-  { _id: "mock-2", type: "image" as const, image: "/lookbook/look2.jpg", aspect: "aspect-[4/5]" },
+  { _id: "mock-1", type: "image" as const, image: "/lookbook/look1.jpg?v=2", aspect: "aspect-[3/4]" },
+  { _id: "mock-2", type: "image" as const, image: "/lookbook/look2.jpg?v=2", aspect: "aspect-[4/5]" },
   { _id: "mock-3", type: "text" as const, textContent: "Y2K VISION", aspect: "aspect-square" },
-  { _id: "mock-4", type: "image" as const, image: "/lookbook/look4.jpg", aspect: "aspect-[3/4]" },
+  { _id: "mock-4", type: "image" as const, image: "/lookbook/look4.jpg?v=2", aspect: "aspect-[3/4]" },
   { _id: "mock-5", type: "text" as const, textContent: "TIMELESS", aspect: "aspect-[16/9]" },
-  { _id: "mock-6", type: "image" as const, image: "/lookbook/look6.jpg", aspect: "aspect-[3/4]" },
+  { _id: "mock-6", type: "image" as const, image: "/lookbook/look6.jpg?v=2", aspect: "aspect-[3/4]" },
 ];
 
 async function getLookbook() {
