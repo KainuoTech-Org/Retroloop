@@ -8,6 +8,10 @@ const nextConfig: NextConfig = {
         pathname: '/lookbook/**',
         search: '?v=2',
       },
+      {
+        pathname: '/**',
+        search: '',
+      },
     ],
     remotePatterns: [
       {
