@@ -6,15 +6,15 @@ import { Heart, Grid, PlaySquare, User } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 const MOCK_IG_POSTS = [
-  { id: 1, image: "/lookbook/ig_store.jpg", likes: "1.2k" },
-  { id: 2, image: "/lookbook/ig_stack.jpg", likes: "892" },
-  { id: 3, image: "/lookbook/ig_detail.jpg", likes: "2.1k" },
-  { id: 4, image: "/lookbook/ig_rack.jpg", likes: "1.5k" },
-  { id: 5, image: "/lookbook/ig_denim.jpg", likes: "3.4k" },
-  { id: 6, image: "/lookbook/ig_rack_2.jpg", likes: "982" },
-  { id: 7, image: "/lookbook/ig_tee.jpg", likes: "1.8k" },
-  { id: 8, image: "/lookbook/ig_leather.jpg", likes: "2.5k" },
-  { id: 9, image: "/lookbook/ig_shoes.jpg", likes: "4.2k" },
+  { id: 1, image: "/lookbook/ig_store.jpg?v=3", likes: "1.2k" },
+  { id: 2, image: "/lookbook/ig_stack.jpg?v=3", likes: "892" },
+  { id: 3, image: "/lookbook/ig_detail.jpg?v=3", likes: "2.1k" },
+  { id: 4, image: "/lookbook/ig_rack.jpg?v=3", likes: "1.5k" },
+  { id: 5, image: "/lookbook/ig_denim.jpg?v=3", likes: "3.4k" },
+  { id: 6, image: "/lookbook/ig_rack_2.jpg?v=3", likes: "982" },
+  { id: 7, image: "/lookbook/ig_tee.jpg?v=3", likes: "1.8k" },
+  { id: 8, image: "/lookbook/ig_leather.jpg?v=3", likes: "2.5k" },
+  { id: 9, image: "/lookbook/ig_shoes.jpg?v=3", likes: "4.2k" },
 ];
 
 export function InstagramFeed() {

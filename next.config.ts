@@ -5,10 +5,6 @@ const nextConfig: NextConfig = {
   images: {
     localPatterns: [
       {
-        pathname: '/lookbook/**',
-        search: '?v=2',
-      },
-      {
         pathname: '/**',
         search: '',
       },
