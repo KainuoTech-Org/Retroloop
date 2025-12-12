@@ -14,7 +14,7 @@ const MOCK_IG_POSTS = [
   { id: 6, image: "/lookbook/ig_rack_2.jpg", likes: "982" },
   { id: 7, image: "/lookbook/ig_tee.jpg", likes: "1.8k" },
   { id: 8, image: "/lookbook/ig_leather.jpg", likes: "2.5k" },
-  { id: 9, image: "/lookbook/look8.jpg?v=2", likes: "4.2k" },
+  { id: 9, image: "/lookbook/ig_shoes.jpg", likes: "4.2k" },
 ];
 
 export function InstagramFeed() {
