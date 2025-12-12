@@ -17,7 +17,15 @@ export function Countdown({ targetDate }: CountdownProps) {
 
   useEffect(() => {
     const calculateTimeLeft = () => {
-      const difference = +targetDate - +new Date();
+      const now = new Date();
+      let difference = +targetDate - +now;
+
+      // Demo Mode: If time has passed, automatically reset to 3 days from now
+      if (difference <= 0) {
+        const futureDate = new Date(now.getTime() + 3 * 24 * 60 * 60 * 1000); // 3 days later
+        difference = +futureDate - +now;
+      }
+
       let newTimeLeft = {
         days: 0,
         hours: 0,

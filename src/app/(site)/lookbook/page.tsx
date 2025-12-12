@@ -2,6 +2,7 @@ import { client } from "@/sanity/lib/client";
 import { urlForImage } from "@/sanity/lib/image";
 import Image from "next/image";
 import { Paperclip, Pin } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface LookbookItem {
   _id: string;
@@ -84,6 +85,9 @@ async function getLookbook() {
   return client.fetch(query);
 }
 
+// Client component wrapper for animations
+import { LookbookGrid } from "./LookbookGrid";
+
 export default async function LookbookPage() {
   const items = await getLookbook();
   
@@ -109,75 +113,8 @@ export default async function LookbookPage() {
            </div>
         </div>
 
-        {/* Masonry Grid with "Polaroid" Style */}
-        <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-12 px-4 md:px-12">
-           {displayItems.map((item: LookbookItem, idx: number) => (
-             <div 
-               key={item._id}
-               className={`relative break-inside-avoid ${item.rotation || 'rotate-0'} transition-transform duration-500 hover:scale-105 hover:z-20`}
-             >
-                {/* Pin or Tape Effect (Random) */}
-                {idx % 2 === 0 ? (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-20 w-8 h-8 flex items-center justify-center text-gray-400 drop-shadow-md">
-                    <Pin className="w-8 h-8 fill-gray-800 text-gray-800 opacity-80" />
-                  </div>
-                ) : (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-20 w-24 h-8 bg-yellow-100/40 rotate-1 backdrop-blur-sm shadow-sm" />
-                )}
-
-                {item.type === "image" && item.image && (
-                  <div className="bg-white p-4 pb-12 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),0_2px_4px_-1px_rgba(0,0,0,0.06)] transform transition-all duration-300 hover:shadow-xl">
-                    <div className={`relative w-full ${item.aspect === 'aspect-square' ? 'aspect-square' : item.aspect === 'aspect-[3/4]' ? 'aspect-[3/4]' : item.aspect === 'aspect-[16/9]' ? 'aspect-[16/9]' : 'aspect-[4/5]'} overflow-hidden bg-gray-100`}>
-                      <Image
-                        src={typeof item.image === 'string' ? item.image : urlForImage(item.image).url()}
-                        alt="Lookbook"
-                        fill
-                        className="object-cover filter contrast-110 sepia-[0.2] hover:sepia-0 transition-all duration-700"
-                      />
-                      {/* Film Dust Overlay */}
-                      <div className="absolute inset-0 opacity-20 pointer-events-none mix-blend-screen bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
-                    </div>
-                    
-                    {/* Handwritten Caption */}
-                    {item.caption && (
-                      <div className="absolute bottom-4 left-4 right-4">
-                        <p className="font-mono text-xs text-gray-500 uppercase tracking-widest text-center">
-                          {item.caption}
-                        </p>
-                      </div>
-                    )}
-                  </div>
-                )}
-
-                {item.type === "text" && (
-                   <div className={`w-full bg-[#f8f5f2] p-8 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] border-2 border-retro-black flex flex-col items-center justify-center min-h-[300px] relative overflow-hidden group`}>
-                      {/* Paper Texture */}
-                      <div className="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/cardboard-flat.png')]"></div>
-                      
-                      <div className="absolute top-4 left-4">
-                        <Paperclip className="w-6 h-6 text-retro-black/40" />
-                      </div>
-
-                      <h2 className="text-5xl md:text-7xl font-oswald font-bold text-retro-black text-center uppercase leading-[0.85] tracking-tighter mix-blend-multiply z-10 group-hover:scale-110 transition-transform duration-500">
-                         {item.textContent}
-                      </h2>
-                      
-                      <div className="mt-6 border-t border-retro-black/20 pt-4 w-full text-center z-10">
-                        <p className="font-mono text-xs text-retro-black/60 uppercase">
-                          {item.caption || "Notes from the Archive"}
-                        </p>
-                      </div>
-                   </div>
-                )}
-             </div>
-           ))}
-        </div>
-
-        {displayItems.length === 0 && (
-           <div className="text-center py-20 opacity-50 font-mono">
-              暂无内容 (No content yet)
-           </div>
-        )}
+        {/* Client-side animated grid */}
+        <LookbookGrid items={displayItems} />
       </div>
     </div>
   );
