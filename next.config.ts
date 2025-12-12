@@ -3,6 +3,12 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   reactCompiler: true,
   images: {
+    localPatterns: [
+      {
+        pathname: '/lookbook/**',
+        search: '?v=2',
+      },
+    ],
     remotePatterns: [
       {
         protocol: 'https',
