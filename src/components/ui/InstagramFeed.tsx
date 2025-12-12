@@ -10,8 +10,11 @@ const MOCK_IG_POSTS = [
   { id: 2, image: "/lookbook/ig_stack.jpg", likes: "892" },
   { id: 3, image: "/lookbook/ig_detail.jpg", likes: "2.1k" },
   { id: 4, image: "/lookbook/ig_rack.jpg", likes: "1.5k" },
-  { id: 5, image: "/lookbook/look1.jpg?v=2", likes: "3.4k" },
-  { id: 6, image: "/lookbook/look2.jpg?v=2", likes: "982" },
+  { id: 5, image: "/lookbook/ig_denim.jpg", likes: "3.4k" },
+  { id: 6, image: "/lookbook/ig_rack_2.jpg", likes: "982" },
+  { id: 7, image: "/lookbook/ig_tee.jpg", likes: "1.8k" },
+  { id: 8, image: "/lookbook/ig_leather.jpg", likes: "2.5k" },
+  { id: 9, image: "/lookbook/look8.jpg?v=2", likes: "4.2k" },
 ];
 
 export function InstagramFeed() {
@@ -24,13 +27,8 @@ export function InstagramFeed() {
         <div className="bg-white border border-retro-black/10 p-6 md:p-8 mb-8 shadow-sm">
           <div className="flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-8">
             {/* Profile Picture */}
-            <div className="relative w-20 h-20 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-retro-red/20 flex-shrink-0">
-               <Image 
-                 src="/brands/stussy_vintage.png" 
-                 alt="Profile" 
-                 fill 
-                 className="object-cover p-2 bg-retro-gray/5"
-               />
+            <div className="relative w-20 h-20 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-retro-red/20 flex-shrink-0 bg-retro-black/5 flex items-center justify-center">
+               <span className="font-oswald font-bold text-3xl text-retro-black">RL</span>
             </div>
 
             {/* Profile Info */}

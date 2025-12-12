@@ -95,7 +95,7 @@ export default function Home() {
                     className="aspect-square flex flex-col items-center justify-center bg-white border border-retro-black/10 hover:border-retro-red hover:shadow-[4px_4px_0px_0px_rgba(139,0,0,1)] transition-all duration-300 group cursor-default p-4 overflow-hidden"
                   >
                      {/* Vintage Logo Image */}
-                     <div className="w-full h-full relative opacity-80 group-hover:opacity-100 transition-all duration-500 group-hover:scale-110 mix-blend-multiply grayscale group-hover:grayscale-0">
+                     <div className="w-full h-full relative opacity-80 group-hover:opacity-100 transition-all duration-500 group-hover:scale-110">
                         <Image 
                           src={brand.logo} 
                           alt={brand.name} 
