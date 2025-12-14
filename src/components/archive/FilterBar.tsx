@@ -13,16 +13,112 @@ const CATEGORIES = ["All", "Tops", "Outerwear", "Bottoms", "Accessories"];
 export function FilterBar({ products }: FilterBarProps) {
   const [activeCategory, setActiveCategory] = useState("All");
   const { t } = useLanguage();
+  
+  // Mock Data
+  const MOCK_PRODUCTS: Product[] = [
+    {
+      id: "mock-1",
+      name: "1994 Pink Floyd Division Bell Tee",
+      brand: "Brockum",
+      price: 2800,
+      size: "XL",
+      grade: "B",
+      image: "/lookbook/look1.jpg?v=2",
+      category: "Tops",
+    },
+    {
+      id: "mock-2",
+      name: "Vintage Carhartt Detroit Jacket",
+      brand: "Carhartt",
+      price: 1500,
+      size: "L",
+      grade: "A",
+      image: "/lookbook/look4.jpg?v=2",
+      category: "Outerwear",
+    },
+    {
+      id: "mock-3",
+      name: "Nike 90s Center Swoosh Hoodie",
+      brand: "Nike",
+      price: 850,
+      size: "M",
+      grade: "B",
+      image: "/lookbook/look2.jpg?v=2",
+      category: "Tops",
+    },
+    {
+      id: "mock-4",
+      name: "Levi's 501 Big E Selvedge",
+      brand: "Levi's",
+      price: 3200,
+      size: "32/30",
+      grade: "A",
+      image: "/lookbook/look6.jpg?v=2",
+      category: "Bottoms",
+    },
+    {
+      id: "mock-5",
+      name: "Stussy 80s Rasta Tee",
+      brand: "Stussy",
+      price: 1200,
+      size: "L",
+      grade: "C",
+      image: "/lookbook/look3.jpg?v=2",
+      category: "Tops",
+    },
+    {
+      id: "mock-6",
+      name: "Prada Sport Nylon Vest",
+      brand: "Prada",
+      price: 4500,
+      size: "48",
+      grade: "S",
+      image: "/lookbook/look7.jpg?v=2",
+      category: "Outerwear",
+    },
+    {
+      id: "mock-7",
+      name: "Harley Davidson 3D Emblem",
+      brand: "Harley Davidson",
+      price: 1800,
+      size: "XL",
+      grade: "A",
+      image: "/lookbook/look8.jpg?v=2",
+      category: "Tops",
+    },
+    {
+      id: "mock-8",
+      name: "Issey Miyake Pleats Pants",
+      brand: "Issey Miyake",
+      price: 2200,
+      size: "2",
+      grade: "A",
+      image: "/lookbook/look5.jpg?v=2",
+      category: "Bottoms",
+    },
+  ];
+
+  const displayProducts = products.length > 0 ? products : MOCK_PRODUCTS;
+  
+  const categoryMap = {
+    "All": t.product.categories.all,
+    "Tops": t.product.categories.tops,
+    "Outerwear": t.product.categories.outerwear,
+    "Bottoms": t.product.categories.bottoms,
+    "Accessories": t.product.categories.accessories,
+  };
+
+  const categories = Object.keys(categoryMap);
 
   const filteredProducts = activeCategory === "All"
-    ? products
-    : products.filter(p => p.category === activeCategory);
+    ? displayProducts
+    : displayProducts.filter(p => p.category === activeCategory);
 
   return (
     <>
       {/* Filter Buttons */}
       <div className="flex flex-wrap justify-center gap-4 mb-16">
-        {CATEGORIES.map((cat) => (
+        {categories.map((cat) => (
           <button
             key={cat}
             onClick={() => setActiveCategory(cat)}
@@ -33,7 +129,7 @@ export function FilterBar({ products }: FilterBarProps) {
                 : "hover:bg-retro-red hover:text-white hover:border-retro-red"}
             `}
           >
-            {cat}
+            {categoryMap[cat as keyof typeof categoryMap]}
           </button>
         ))}
       </div>

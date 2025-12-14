@@ -41,23 +41,23 @@ export function InstagramFeed() {
                     target="_blank"
                     className="px-6 py-1.5 bg-retro-black text-white text-sm font-bold rounded hover:bg-retro-red transition-colors"
                   >
-                    Follow
+                    {t.featured.instagramProfile.follow}
                   </Link>
                   <button className="px-4 py-1.5 bg-retro-gray/10 text-retro-black text-sm font-bold rounded hover:bg-retro-gray/20 transition-colors">
-                    Message
+                    {t.featured.instagramProfile.message}
                   </button>
                 </div>
               </div>
 
               <div className="flex justify-center md:justify-start gap-8 mb-4 text-sm font-mono">
-                <div className="text-center md:text-left"><span className="font-bold">1,208</span> posts</div>
-                <div className="text-center md:text-left"><span className="font-bold">45.2k</span> followers</div>
-                <div className="text-center md:text-left"><span className="font-bold">280</span> following</div>
+                <div className="text-center md:text-left"><span className="font-bold">1,208</span> {t.featured.instagramProfile.posts}</div>
+                <div className="text-center md:text-left"><span className="font-bold">45.2k</span> {t.featured.instagramProfile.followers}</div>
+                <div className="text-center md:text-left"><span className="font-bold">280</span> {t.featured.instagramProfile.following}</div>
               </div>
 
               <div className="hidden md:block">
                 <h3 className="font-bold text-sm">RetroLoop Archive HK</h3>
-                <p className="text-sm text-gray-600">Vintage Clothing Store<br/>Timeless Pieces for Modern Souls.<br/>HK Based Archive / Worldwide Shipping ✈️</p>
+                <p className="text-sm text-gray-600 whitespace-pre-line">{t.featured.instagramProfile.bio}</p>
               </div>
             </div>
           </div>
@@ -65,7 +65,7 @@ export function InstagramFeed() {
           {/* Mobile Bio */}
           <div className="mt-6 md:hidden text-center">
             <h3 className="font-bold text-sm">RetroLoop Archive HK</h3>
-            <p className="text-sm text-gray-600">Vintage Clothing Store<br/>Timeless Pieces for Modern Souls.<br/>HK Based Archive / Worldwide Shipping ✈️</p>
+            <p className="text-sm text-gray-600 whitespace-pre-line">{t.featured.instagramProfile.bio}</p>
           </div>
         </div>
 
@@ -73,13 +73,13 @@ export function InstagramFeed() {
         <div className="flex justify-center border-t border-retro-black/10 mb-1">
           <div className="flex gap-12">
             <button className="flex items-center gap-2 py-4 border-t-2 border-retro-black text-retro-black text-xs font-bold uppercase tracking-widest">
-              <Grid className="w-3 h-3" /> POSTS
+              <Grid className="w-3 h-3" /> {t.featured.instagramProfile.tabs.posts}
             </button>
             <button className="flex items-center gap-2 py-4 border-t-2 border-transparent text-gray-400 text-xs font-bold uppercase tracking-widest hover:text-gray-600">
-              <PlaySquare className="w-3 h-3" /> REELS
+              <PlaySquare className="w-3 h-3" /> {t.featured.instagramProfile.tabs.reels}
             </button>
             <button className="flex items-center gap-2 py-4 border-t-2 border-transparent text-gray-400 text-xs font-bold uppercase tracking-widest hover:text-gray-600">
-              <User className="w-3 h-3" /> TAGGED
+              <User className="w-3 h-3" /> {t.featured.instagramProfile.tabs.tagged}
             </button>
           </div>
         </div>

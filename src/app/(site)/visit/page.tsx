@@ -35,36 +35,36 @@ export default function VisitPage() {
                <h3 className="font-oswald text-2xl font-bold uppercase">{t.visit.location}</h3>
              </div>
              <p className="font-mono text-lg leading-relaxed">
-               Unit 1402, 14/F, Vintage Tower<br/>
-               52-54 Wellington Street<br/>
-               Central, Hong Kong
-             </p>
-             <p className="text-sm opacity-60">MTR Central Station Exit D2 (3 min walk)</p>
-           </motion.div>
+              {t.visit.address.line1}<br/>
+              {t.visit.address.line2}<br/>
+              {t.visit.address.line3}
+            </p>
+            <p className="text-sm opacity-60">{t.visit.address.mtr}</p>
+          </motion.div>
 
-           {/* Hours */}
-           <motion.div 
-             initial={{ opacity: 0, x: -20 }}
-             whileInView={{ opacity: 1, x: 0 }}
-             viewport={{ once: true }}
-             transition={{ delay: 0.1 }}
-             className="space-y-4"
-           >
-             <div className="flex items-center gap-3 text-retro-red">
-               <Clock className="w-6 h-6" />
-               <h3 className="font-oswald text-2xl font-bold uppercase">{t.visit.hours}</h3>
-             </div>
-             <ul className="font-mono text-lg space-y-2">
-               <li className="flex justify-between max-w-xs border-b border-retro-black/10 pb-1">
-                 <span>Mon - Fri</span>
-                 <span>13:00 - 20:00</span>
-               </li>
-               <li className="flex justify-between max-w-xs border-b border-retro-black/10 pb-1">
-                 <span>Sat - Sun</span>
-                 <span>12:00 - 21:00</span>
-               </li>
-             </ul>
-           </motion.div>
+          {/* Hours */}
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="space-y-4"
+          >
+            <div className="flex items-center gap-3 text-retro-red">
+              <Clock className="w-6 h-6" />
+              <h3 className="font-oswald text-2xl font-bold uppercase">{t.visit.hours}</h3>
+            </div>
+            <ul className="font-mono text-lg space-y-2">
+              <li className="flex justify-between max-w-xs border-b border-retro-black/10 pb-1">
+                <span>{t.visit.days.monFri}</span>
+                <span>13:00 - 20:00</span>
+              </li>
+              <li className="flex justify-between max-w-xs border-b border-retro-black/10 pb-1">
+                <span>{t.visit.days.satSun}</span>
+                <span>12:00 - 21:00</span>
+              </li>
+            </ul>
+          </motion.div>
 
            {/* Contact & Booking */}
            <motion.div 

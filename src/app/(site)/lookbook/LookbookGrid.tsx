@@ -6,6 +6,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { urlForImage } from "@/sanity/lib/image";
 
+import { useLanguage } from "@/context/LanguageContext";
+
 interface LookbookItem {
   _id: string;
   type: "image" | "text";
@@ -14,10 +16,74 @@ interface LookbookItem {
   aspect: string;
   rotation?: string;
   caption?: string;
+  captionKey?: string; // Add this for translation key
 }
 
 export function LookbookGrid({ items }: { items: LookbookItem[] }) {
+  const { t } = useLanguage();
   const [selectedId, setSelectedId] = useState<string | null>(null);
+
+  // Mock Data for Demo (Fallback when Sanity is empty)
+  const MOCK_LOOKBOOK: LookbookItem[] = [
+    { 
+      _id: "mock-1", 
+      type: "image", 
+      image: "/lookbook/look1.jpg?v=2", 
+      aspect: "aspect-[3/4]",
+      rotation: "rotate-2",
+      caption: t.archive.mock.summerVibes
+    },
+    { 
+      _id: "mock-2", 
+      type: "image", 
+      image: "/lookbook/look2.jpg?v=2", 
+      aspect: "aspect-[4/5]",
+      rotation: "-rotate-1",
+      caption: t.archive.mock.nikeSwoosh
+    },
+    { 
+      _id: "mock-3", 
+      type: "text", 
+      textContent: t.archive.mock.nostalgia, 
+      aspect: "aspect-square",
+      rotation: "rotate-3",
+      caption: t.archive.mock.manifesto
+    },
+    { 
+      _id: "mock-4", 
+      type: "image", 
+      image: "/lookbook/look4.jpg?v=2", 
+      aspect: "aspect-[3/4]",
+      rotation: "-rotate-2",
+      caption: t.archive.mock.carhartt
+    },
+    { 
+      _id: "mock-5", 
+      type: "text", 
+      textContent: t.archive.mock.rawDenim, 
+      aspect: "aspect-[16/9]",
+      rotation: "rotate-1",
+      caption: t.archive.mock.fabricDetails
+    },
+    { 
+      _id: "mock-6", 
+      type: "image", 
+      image: "/lookbook/look6.jpg?v=2", 
+      aspect: "aspect-[3/4]",
+      rotation: "rotate-2",
+      caption: t.archive.mock.selvedge
+    },
+    { 
+      _id: "mock-7", 
+      type: "image", 
+      image: "/lookbook/ig_leather.jpg", 
+      aspect: "aspect-square",
+      rotation: "-rotate-3",
+      caption: t.archive.mock.leatherPatina
+    },
+  ];
+
+  const displayItems = items.length > 0 ? items : MOCK_LOOKBOOK;
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -53,13 +119,24 @@ export function LookbookGrid({ items }: { items: LookbookItem[] }) {
 
   return (
     <>
+      <div className="mb-20 text-center">
+         <h1 className="text-5xl md:text-8xl font-oswald font-bold uppercase text-retro-black mb-4 tracking-tighter">
+            {t.lookbook.visualArchive}
+         </h1>
+         <div className="inline-block bg-retro-red text-retro-beige px-4 py-1 transform -rotate-2">
+           <p className="font-mono text-sm tracking-widest uppercase">
+              {t.lookbook.vol}
+           </p>
+         </div>
+      </div>
+
       <motion.div 
         className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-12 px-4 md:px-12"
         variants={containerVariants}
         initial="hidden"
         animate="show"
       >
-        {items.map((item, idx) => (
+        {displayItems.map((item, idx) => (
           <motion.div 
             key={item._id}
             custom={getRotationValue(item.rotation)}
@@ -136,7 +213,7 @@ export function LookbookGrid({ items }: { items: LookbookItem[] }) {
             exit={{ opacity: 0 }}
             onClick={() => setSelectedId(null)}
           >
-            {items.map((item) => {
+            {displayItems.map((item) => {
               if (item._id !== selectedId) return null;
               return (
                 <motion.div 

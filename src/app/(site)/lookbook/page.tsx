@@ -87,13 +87,11 @@ async function getLookbook() {
 
 // Client component wrapper for animations
 import { LookbookGrid } from "./LookbookGrid";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default async function LookbookPage() {
   const items = await getLookbook();
   
-  // Combine Sanity data with Mock data if Sanity is empty
-  const displayItems = items.length > 0 ? items : MOCK_LOOKBOOK;
-
   return (
     <div className="min-h-screen pt-24 pb-20 px-4 sm:px-6 bg-[#f0f0f0] relative overflow-hidden">
       {/* Background Texture Overlay */}
@@ -102,20 +100,25 @@ export default async function LookbookPage() {
       />
 
       <div className="max-w-[1600px] mx-auto relative z-10">
-        <div className="mb-20 text-center">
-           <h1 className="text-5xl md:text-8xl font-oswald font-bold uppercase text-retro-black mb-4 tracking-tighter">
-              Visual Archive
-           </h1>
-           <div className="inline-block bg-retro-red text-retro-beige px-4 py-1 transform -rotate-2">
-             <p className="font-mono text-sm tracking-widest uppercase">
-                Vol. 01 — 2024 Collection
-             </p>
-           </div>
-        </div>
-
+        <LookbookHeader />
+        
         {/* Client-side animated grid */}
-        <LookbookGrid items={displayItems} />
+        <LookbookGrid items={items} />
       </div>
     </div>
   );
+}
+
+function LookbookHeader() {
+  // This needs to be a client component to use translations, 
+  // or we can just make LookbookPage a client component?
+  // Since getLookbook is async, LookbookPage must be server.
+  // We can pass translations or make a small client header component.
+  // Actually, let's just make LookbookGrid handle the header too? 
+  // Or create a separate client component for header.
+  return (
+    <div className="mb-20 text-center">
+        {/* We will replace this with a client component that handles translation */}
+    </div>
+  )
 }

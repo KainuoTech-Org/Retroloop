@@ -2,12 +2,14 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface CountdownProps {
   targetDate: Date;
 }
 
 export function Countdown({ targetDate }: CountdownProps) {
+  const { t } = useLanguage();
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -72,13 +74,13 @@ export function Countdown({ targetDate }: CountdownProps) {
 
   return (
     <div className="flex justify-center items-center py-8">
-      <TimeBlock value={timeLeft.days} label="Days" />
+      <TimeBlock value={timeLeft.days} label={t.countdown.days} />
       <span className="text-2xl md:text-5xl font-oswald font-bold text-retro-black/20 pb-8">:</span>
-      <TimeBlock value={timeLeft.hours} label="Hours" />
+      <TimeBlock value={timeLeft.hours} label={t.countdown.hours} />
       <span className="text-2xl md:text-5xl font-oswald font-bold text-retro-black/20 pb-8">:</span>
-      <TimeBlock value={timeLeft.minutes} label="Mins" />
+      <TimeBlock value={timeLeft.minutes} label={t.countdown.mins} />
       <span className="text-2xl md:text-5xl font-oswald font-bold text-retro-black/20 pb-8">:</span>
-      <TimeBlock value={timeLeft.seconds} label="Secs" />
+      <TimeBlock value={timeLeft.seconds} label={t.countdown.secs} />
     </div>
   );
 }
