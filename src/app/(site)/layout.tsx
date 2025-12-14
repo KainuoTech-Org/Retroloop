@@ -17,16 +17,16 @@ export default function SiteLayout({
     <LanguageProvider>
       <Navbar />
       <AnimatePresence mode="wait">
-        <motion.main
+        <motion.div
           key={pathname}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="flex-1"
+          className="flex-1 flex flex-col min-h-screen"
         >
           {children}
-        </motion.main>
+        </motion.div>
       </AnimatePresence>
       <Footer />
     </LanguageProvider>
