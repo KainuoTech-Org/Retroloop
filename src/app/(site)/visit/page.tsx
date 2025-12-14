@@ -110,7 +110,7 @@ export default function VisitPage() {
            initial={{ opacity: 0, scale: 0.95 }}
            whileInView={{ opacity: 1, scale: 1 }}
            viewport={{ once: true }}
-           className="relative aspect-square w-full bg-retro-gray/10 grayscale hover:grayscale-0 transition-all duration-700"
+           className="relative aspect-square w-full bg-retro-gray/10"
         >
            {/* Embed Google Map */}
            <iframe 
